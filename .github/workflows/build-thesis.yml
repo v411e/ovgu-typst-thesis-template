@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  build_release_thesis:
+  build_thesis:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,3 +19,8 @@ jobs:
         uses: lvignoli/typst-action@main
         with:
           source_file: thesis.typ
+
+      - name: Upload pdf as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: thesis.pdf
