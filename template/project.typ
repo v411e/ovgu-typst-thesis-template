@@ -1,4 +1,4 @@
-#import "template/components.typ": *
+#import "components.typ": *
 
 #let project(
   title: "",
@@ -53,5 +53,5 @@
   body
 
   pagebreak()
-  bibliography("thesis.bib")
+  bibliography("../thesis.bib")
 }

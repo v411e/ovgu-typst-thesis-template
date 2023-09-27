@@ -1,5 +1,5 @@
 #import "metadata.typ": *
-#import "template.typ": *
+#import "template/project.typ": *
 #import "template/titlepage.typ": *
 #import "template/disclaimer.typ": *
 #import "template/acknowledgement.typ": *
