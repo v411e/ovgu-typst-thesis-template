@@ -1,0 +1,21 @@
+name: Build thesis
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build_release_thesis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+  
+      - name: Compile Typst
+        uses: lvignoli/typst-action@main
+        with:
+          source_file: thesis.typ
