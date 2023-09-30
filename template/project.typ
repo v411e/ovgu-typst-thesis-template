@@ -28,7 +28,28 @@
   )
   show math.equation: set text(weight: 400)
   show heading: set text(font: body-font)
-  set heading(numbering: "1.1")
+
+  let number-until-with(max-level, schema) = (..numbers) => {
+    if numbers.pos().len() <= max-level {
+      numbering(schema, ..numbers)
+    } else if numbers.pos().len() > max-level {
+      let reduced_numbers = numbers.pos().slice(max-level)
+      numbering(schema + ".", ..reduced_numbers)
+    }
+  }
+  set heading(numbering: number-until-with(3, "1.1"))
+  let small-heading() = it => [
+    #set text(
+      weight: "regular",
+      style: "italic"
+    )
+    #it
+  ]
+  show heading.where(level: 4) : small-heading()
+  show heading.where(level: 5) : small-heading()
+  show heading.where(level: 6) : small-heading()
+  show heading.where(level: 7) : small-heading()
+
   set par(leading: 1em)
 
   // Table of contents
