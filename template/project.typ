@@ -27,7 +27,7 @@
     lang: lang
   )
   show math.equation: set text(weight: 400)
-  show heading: set text(font: body-font)
+  show heading: set text(font: sans-font)
 
   let number-until-with(max-level, schema) = (..numbers) => {
     if numbers.pos().len() <= max-level {
