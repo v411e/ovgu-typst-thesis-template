@@ -13,7 +13,7 @@
 ) = {
   set document(title: title, author: author)
   set page(
-    margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 40mm),
+    margin: (left: 30mm, right: 30mm, top: 27mm, bottom: 27mm),
     numbering: "1",
     number-align: center,
   )
@@ -23,7 +23,7 @@
 
   set text(
     font: body-font, 
-    size: 12pt, 
+    size: 11pt, 
     lang: lang
   )
   show math.equation: set text(weight: 400)
