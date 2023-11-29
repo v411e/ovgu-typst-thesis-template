@@ -19,7 +19,7 @@
   )
 
   // New content should start on the right page which is odd when printed double-sided
-  set pagebreak(to: "odd")
+  // set pagebreak(weak: true, to: "odd")
 
   set text(
     font: body-font, 
@@ -27,29 +27,23 @@
     lang: lang
   )
   show math.equation: set text(weight: 400)
-  show heading: set text(font: sans-font)
 
-  let number-until-with(max-level, schema) = (..numbers) => {
-    if numbers.pos().len() <= max-level {
-      numbering(schema, ..numbers)
-    } else if numbers.pos().len() > max-level {
-      let reduced_numbers = numbers.pos().slice(max-level)
-      numbering(schema + ".", ..reduced_numbers)
-    }
-  }
-  set heading(numbering: number-until-with(3, "1.1"))
-  let small-heading() = it => [
-    #set text(
-      weight: "regular",
-      style: "italic"
-    )
-    #it
+  show heading: set text(font: sans-font)
+  show heading.where(level: 1): h => [
+    #pagebreak(weak: true)
+    #h
   ]
+
+  // Apply custom numbering to headings
+  set heading(numbering: number-until-with(3, "1.1"))
+
+  // Make nested headings apply small-heading style
   show heading.where(level: 4) : small-heading()
   show heading.where(level: 5) : small-heading()
   show heading.where(level: 6) : small-heading()
   show heading.where(level: 7) : small-heading()
 
+  // Set the space between lines in text
   set par(leading: 1em)
 
   // Table of contents
