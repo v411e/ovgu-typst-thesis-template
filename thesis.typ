@@ -34,6 +34,7 @@
 )
 
 #acknowledgement(
+  heading: false,
   "Standing on the shoulders of giants"
 )
 
