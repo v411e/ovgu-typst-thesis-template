@@ -2,7 +2,7 @@
 #let title = "Title"
 #let documentType = "Masterarbeit"
 #let supervisor = "Prof. Dr. Supervisor"
-#let secondSupervisor = "Second Supervisor, M.Sc."
+#let secondSupervisor = "Prof. Dr. Second Supervisor"
 #let advisors = ("Advisor, M.Sc.",)
 #let author = "Your Name"
 #let city = "Magdeburg"

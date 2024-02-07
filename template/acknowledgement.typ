@@ -1,20 +1,21 @@
 #import "components.typ": *
 
-#let acknowledgement() = {
-  set page(
-    margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 40mm),
-    numbering: none,
-    number-align: center,
-  )
+#let acknowledgement(heading: true, body) = {
 
-  set text(
-    font: body-font, 
-    size: 12pt, 
-    lang: "en"
-  )
+  if heading {
+    align(
+      left,
+      text(
+        font: sans-font,
+        size: 2em,
+        weight: 700,
+        "Acknowledgements")
+      )
+  }
 
-  set par(leading: 1em)
+  set align(center + horizon)
+  
+  body
 
-  align(left, text(font: sans-font, 2em, weight: 700,"Acknowledgements"))
-  v(15mm)
+  pagebreak()
 }

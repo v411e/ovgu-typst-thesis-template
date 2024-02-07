@@ -2,12 +2,7 @@
 
 #let project(
   title: "",
-  documentType: "",
-  supervisor: "",
-  secondSupervisor: "",
-  advisors: (),
   author: "",
-  date: none,
   lang: "en",
   body,
 ) = {
@@ -27,6 +22,15 @@
     lang: lang
   )
   show math.equation: set text(weight: 400)
+  show figure.caption: emph
+
+  show figure.where(
+    kind: table
+): set figure.caption(position: top)
+
+  show figure.where(
+    kind: raw
+): set figure.caption(position: top)
 
   show heading: set text(font: sans-font)
   show heading.where(level: 1): h => [
@@ -43,8 +47,12 @@
   show heading.where(level: 6) : small-heading()
   show heading.where(level: 7) : small-heading()
 
-  // Set the space between lines in text
-  set par(leading: 1em)
+  show par: set block(spacing: 1em) 
+  set par(
+    justify: true,
+    leading: 1em, // Set the space between lines in text
+    first-line-indent: 1em
+  )
 
   // Table of contents
   set outline(indent: 2em)
@@ -55,18 +63,6 @@
     ]
     #outline
   ]
-  outline()
   
-  
-  v(2.4fr)
-  pagebreak()
-
-
-  // Main body
-  set par(justify: true)
-
   body
-
-  pagebreak()
-  bibliography("../thesis.bib")
 }

@@ -6,6 +6,15 @@
 #import "template/abstract.typ": *
 #import "template/components.typ": *
 
+
+#show: project.with(
+  title: title,
+  author: author,
+  lang: lang
+)
+
+#set page(numbering: "I")
+
 #titlepage(
   title: title,
   documentType: documentType,
@@ -18,29 +27,30 @@
   lang: lang
 )
 
+#counter(page).update(2)
+
 #disclaimer(
-  title: title,
-  documentType: documentType,
-  author: author,
-  submissionDate: date,
   city: city,
 )
 
-#acknowledgement()
+#acknowledgement(
+  "Standing on the shoulders of giants"
+)
 
 #abstract()
 
-#if (lang == "de") [#abstract(lang: "de")]
+#if lang == "de" [
+  #abstract(lang: "de")
+]
 
-#show: project.with(
-  title: title,
-  documentType: documentType,
-  supervisor: supervisor,
-  secondSupervisor: secondSupervisor,
-  advisors: advisors,
-  author: author,
-  date: date,
-  lang: lang
-)
+#outline()
+
+#pagebreak()
+
+#set page(numbering: "1")
+#counter(page).update(1)
+
 
 #include "chapter/01-Einleitung.typ"
+
+#bibliography("./thesis.bib")

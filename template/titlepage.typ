@@ -11,23 +11,16 @@
   date: none,
   lang: "en",
 ) = {
-  set document(title: title, author: author)
   set page(
-    margin: (left: 30mm, right: 30mm, top: 40mm, bottom: 40mm),
-    numbering: none,
-    number-align: center,
+    numbering: none
   )
 
-  set text(
-    font: body-font, 
-    size: 12pt, 
-    lang: lang
+  set par(
+    leading: 1em,
+    first-line-indent: 0em,
+    justify: false,
   )
-
-  set par(leading: 1em)
-
   
-  // Title Page
   align(center, image("../template/figures/fin-de.svg", width: 100%))
 
   v(5mm)
@@ -97,6 +90,6 @@
       ]
     )
   ]
-
-  pagebreak()
+  
+  pagebreak(weak: true)
 }
